@@ -5,7 +5,7 @@ import { CldUploadButton } from 'next-cloudinary';
 import { CldImage } from 'next-cloudinary';
 import { useState } from "react";
 
-type UploadResult = {
+export type UploadResult = {
   info:{
     public_id: string;
   };
@@ -20,7 +20,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <CldUploadButton 
       onSuccess={(results:UploadResult) => {
-        setImageId(results.info.public_id);
+        return setImageId(results.info.public_id);
       }}
       uploadPreset="np9lonvj" />
 
